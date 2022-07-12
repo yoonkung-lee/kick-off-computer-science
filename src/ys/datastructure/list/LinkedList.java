@@ -6,7 +6,9 @@ public interface LinkedList {
 
     public void addMiddle(Object obj , int index);
 
-    public void remove(Object obj);
+    public void add(Object obj);
+
+    public void remove(int index);
 
     public int size();
 

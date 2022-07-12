@@ -1,15 +1,15 @@
 package ys.datastructure.list;
 
-public class Node {
+public class Node<T> {
 
-    private Object data;
+    private T data;
     private Node link;
 
-    public Node (Object obj) {
+    public Node (T obj) {
         setData(obj);
     }
 
-    public Node (Object obj , Node link) {
+    public Node (T obj , Node link) {
         setData(obj);
         setLink(link);
     }
@@ -18,7 +18,7 @@ public class Node {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -26,7 +26,7 @@ public class Node {
         return link;
     }
 
-    public void setLink(Node link) {
+    public void setLink(Node<T> link) {
         this.link = link;
     }
 
