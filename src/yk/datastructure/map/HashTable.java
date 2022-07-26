@@ -2,9 +2,12 @@ package yk.datastructure.map;
 
 import java.lang.reflect.Array;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class HashTable<String, E> implements MyMap<String, E>{
     //Collision 대비 linkedList로 구현
+    int size = 8;
+    private LinkedList<Node>[] rooms = new LinkedList[size];
     private class Node{
         String key;
         E value;
@@ -22,25 +25,25 @@ public class HashTable<String, E> implements MyMap<String, E>{
     }
     //Node inner Class End.
 
-    int size = 5;
-    private LinkedList<Node>[] rooms = new LinkedList[size];
-    /*HashTable(int size){
-        this.data = new LinkedList[size];
-    }*/
+
 
     // 메서드 start
-    protected int getHashCode(String key) {
-        int hashCode = 0;
+    private int getHashCode(String key) {
+        return Objects.hashCode(key);
+        // null 이면 0 반환
 
         // hash Func
-        for(char c : key.toString().toCharArray()){
+        /*for(char c : key.toString().toCharArray()){
             hashCode += c;
-        }
-        return hashCode;
+        }*/
     }
 
     private int convertToIndex(int hashCode){
-        return hashCode % rooms.length;
+        int index = hashCode % rooms.length;
+        if(index < 0) {
+            index = index * -1;
+        }
+        return index;
     }
 
     private Node searchKey(LinkedList<Node> list, String key){
@@ -69,6 +72,7 @@ public class HashTable<String, E> implements MyMap<String, E>{
         }else {
             node.value(value);
         }
+        return;
     }
 
     // 반환
@@ -109,8 +113,20 @@ public class HashTable<String, E> implements MyMap<String, E>{
     // 전체 삭제
     public void clear() {
         for(LinkedList<Node> room : rooms){
+            if(room == null) continue;
             room.clear();
         }
+    }
+
+    // 데이터 비었는지 확인
+    public boolean empty(){
+        for(LinkedList<Node> room : rooms){
+            if(room == null) continue;
+            if(room.size() != 0) {
+                return false;
+            }
+        }
+        return true;
     }
     //메서드 end.
 }

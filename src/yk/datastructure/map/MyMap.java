@@ -7,4 +7,5 @@ public interface MyMap<String, E> {
     public void replace(String key, E value);
     public boolean contains(String key);
     public void clear();
+    public boolean empty();
 }
