@@ -1,11 +1,12 @@
-package algorithm.study;
+package algorithm.queue;
 
 import java.util.*;
 
-public class SolutionTruck {
+public class Pg42583_TruckBridge {
+    // https://school.programmers.co.kr/learn/courses/30/lessons/42583
     public static void main(String[] args) {
         int[] x = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
-        System.out.println(new SolutionTruck().solution(100, 100, x));
+        System.out.println(new Pg42583_TruckBridge().solution(100, 100, x));
     }
 
     class Truck {
