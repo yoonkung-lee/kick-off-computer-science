@@ -58,7 +58,7 @@ class QuickSort{
     }
 }
 
-public class Main {
+public class Bj2751 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
